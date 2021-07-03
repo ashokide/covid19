@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Covid</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="container">
+        <div id="content">
+            <div id="data">
+                <h1 style="padding: 20px; text-decoration: underline;">Covid Status</h1>
+                <div id="name0">
+                    <input type="text" placeholder="Enter District" id="inputBox" autofocus required autocomplete="off" />
+                    <button onclick="submitData()" id="myButton">Submit</button>
+                </div>
+                
+                <div id="name1">
+                    <h1><span id="district"></span> District</h1>
+                </div>
+                
+                <div id="name2">
+                    <h1>Active Cases</h1>
+                    <h1 id="active"></h1>
+                </div>
+                
+                <div id="name3">
+                    <h1>Confirmed Cases</h1>
+                    <h1 id="confirm"></h1>
+                </div>
+                
+                <div id="name4">
+                    <h1>Deceased Cases</h1>
+                    <h1 id="deceased"></h1>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <footer style="position: fixed;bottom: 0; width: 100%;">
+        <h1 style="text-align: center;font-family: cursive;padding: 10px;">Made with ❤️</h1>
+    </footer>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
