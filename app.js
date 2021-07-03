@@ -11,14 +11,16 @@ async function getActiveData(state, district) {
     return [data1, data2, data3];
 }
 
-function getCovidStatus(Mydistrict) {
+function getCovidStatus(MyState, Mydistrict) {
     let active = document.getElementById('active');
     let confirm = document.getElementById('confirm');
     let deceased = document.getElementById('deceased');
     let district = document.getElementById('district');
-    district.innerHTML = Mydistrict
+    district.innerHTML = Mydistrict;
+    let stateId = document.getElementById('stateId');
+    stateId.innerHTML = MyState;
 
-    getActiveData('Tamil Nadu', Mydistrict).then(e => {
+    getActiveData(MyState, Mydistrict).then(e => {
         active.innerHTML = e[0];
         confirm.innerHTML = e[1];
         deceased.innerHTML = e[2];
@@ -34,25 +36,72 @@ deceased.innerHTML = 0;
 
 
 function submitData() {
-    let value = document.getElementById('inputBox').value.trim().toLowerCase();
-    let Mydistrict = String.fromCharCode(value.charCodeAt(0) - 32) + value.substr(1, value.length)
-    document.getElementById('inputBox').value = ''
-    if (value === "") {
+    let MyState = document.getElementById('selectBox0').value;
+    let MyDistrict = document.getElementById('selectBox').value;
+    if (MyDistrict === "") {
         let active = document.getElementById('active');
         let confirm = document.getElementById('confirm');
         let deceased = document.getElementById('deceased');
         let district = document.getElementById('district');
+        let stateId = document.getElementById('stateId');
+        stateId.innerHTML = '';
         district.innerHTML = '';
         active.innerHTML = 0;
         confirm.innerHTML = 0;
         deceased.innerHTML = 0;
     } else {
-        getCovidStatus(Mydistrict)
+        getCovidStatus(MyState, MyDistrict)
     }
+    // document.getElementById('selectBox0').value = ''
+    // districtData = []
+    // document.getElementById('selectBox').options.length = 1
 }
 
+//Populating Select Box
+async function func() {
+    let data = await fetch(
+        "https://api.covid19india.org/state_district_wise.json"
+    );
+    return await data.json();
+}
+
+let stateData = [];
+func().then((e) => {
+    for (var i in e) {
+        stateData.push(i);
+    }
+    stateData.sort()
+});
 
 
+let dist = document.getElementById("selectBox");
+let state1 = document.getElementById("selectBox0");
+
+setTimeout(() => {
+    for (var state in stateData) {
+        let d = document.createElement("option");
+        d.textContent = stateData[state];
+        d.value = stateData[state];
+        state1.appendChild(d);
+    }
+}, 3000);
 
 
-
+function getDistricts() {
+    document.getElementById('selectBox').options.length = 1
+    let districtData = [];
+    func().then((e) => {
+        for (var i in e[state1.value].districtData) {
+            districtData.push(i);
+        }
+        districtData.sort()
+    });
+    setTimeout(() => {
+        for (var district in districtData) {
+            let d = document.createElement("option");
+            d.textContent = districtData[district];
+            d.value = districtData[district];
+            dist.appendChild(d);
+        }
+    }, 1000);
+}

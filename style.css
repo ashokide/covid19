@@ -26,9 +26,45 @@
     justify-content: center;
     flex-direction: column;
 }
+.inputdiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    min-height: 100px;
+    margin:10px 0 10px 0;
+}
+
+
+#selectBox,#selectBox0{
+    height: 30px;
+    width:140px;
+    margin: 5px;
+    outline: none !important;
+}
+
+#state{
+    margin: 2px;
+}
+
+#myButton1{
+    padding: 5px;
+    height: 100%;
+    background-color: deeppink;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+#myButton1:hover {
+    box-shadow: 0 0 2px 1px white;
+}
+
+#myButton1:active {
+    box-shadow: inset 1px 1px 2px black;
+}
 
 #myButton {
-    width: 100px;
+    padding: 5px;
     height: 100%;
     background-color: deeppink;
     border: none;
@@ -44,19 +80,6 @@
     box-shadow: inset 1px 1px 2px black;
 }
 
-#inputBox {
-    outline: none;
-    height: 100%;
-    width: 170px;
-    border: none;
-    padding: 5px;
-    border-radius: 5px;
-}
-
-#name0 {
-    height: 38px;
-}
-
 #name1, #name2, #name3, #name4 {
     margin: 20px;
     background-color: tomato;
@@ -65,10 +88,10 @@
 
 @media screen and (max-width:700px) {
     * {
-        font-size: 20px;
+        font-size: 18px;
     }
     #content {
         width: 90%;
-        height: 80%;
+        height: 90%;
     }
 }
