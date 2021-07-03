@@ -41,6 +41,8 @@ function submitData() {
         let active = document.getElementById('active');
         let confirm = document.getElementById('confirm');
         let deceased = document.getElementById('deceased');
+        let district = document.getElementById('district');
+        district.innerHTML = '';
         active.innerHTML = 0;
         confirm.innerHTML = 0;
         deceased.innerHTML = 0;
