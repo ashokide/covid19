@@ -11,36 +11,38 @@
     <div id="container">
         <div id="content">
             <div id="data">
-                <h1 style="padding: 20px; text-decoration: underline;">Covid Status</h1>
+                <h1 style="padding: 20px; text-decoration: underline;font-size: 40px;">Covid Status</h1>
                 <div id="name0">
-                    <input type="text" placeholder="Enter District" id="inputBox" autofocus required autocomplete="off" />
+                    <input type="text" placeholder="Enter District" id="inputBox" autofocus required
+                        autocomplete="off" />
                     <button onclick="submitData()" id="myButton">Submit</button>
                 </div>
-                
+
                 <div id="name1">
                     <h1><span id="district"></span> District</h1>
                 </div>
-                
+
                 <div id="name2">
                     <h1>Active Cases</h1>
                     <h1 id="active"></h1>
                 </div>
-                
+
                 <div id="name3">
                     <h1>Confirmed Cases</h1>
                     <h1 id="confirm"></h1>
                 </div>
-                
+
                 <div id="name4">
                     <h1>Deceased Cases</h1>
                     <h1 id="deceased"></h1>
                 </div>
 
+                <footer style="position: relative;bottom: 0; width: 100%;">
+                    <h1 style="text-align: center;padding: 10px;color:black">Made with ❤️</h1>
+                </footer>
             </div>
+            
         </div>
-        <footer style="position: fixed;bottom: 0; width: 100%;">
-            <h1 style="text-align: center;padding: 10px;">Made with ❤️</h1>
-        </footer>
     </div>
 
     <script src="app.js"></script>
