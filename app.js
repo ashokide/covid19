@@ -1,7 +1,7 @@
 async function getActiveData(state, district) {
     let data1 = 0, data2 = 0, data3 = 0;
     let result = await fetch(
-        'https://api.covid19india.org/state_district_wise.json',{ method: "GET", mode: 'no-cors', headers: { 'Content-Type': 'application/json',}}
+        'https://data.covid19india.org/state_district_wise.json'
     );
     let final = await result.json();
     data1 = final[state].districtData[district].active;
@@ -60,7 +60,7 @@ function submitData() {
 //Populating Select Box
 async function func() {
     let data = await fetch(
-        "https://api.covid19india.org/state_district_wise.json",{ method: "GET", mode: 'no-cors', headers: { 'Content-Type': 'application/json',}}
+        "https://data.covid19india.org/state_district_wise.json"
     );
     return await data.json();
 }
